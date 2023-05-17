@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../components/item_tile.dart';
-import '../provider/fish_items_provider.dart';
+import '../provider/cart_provider.dart';
 import 'cart_page.dart';
 
 class FishItems extends StatelessWidget {

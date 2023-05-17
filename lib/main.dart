@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meet_shop/provider/fish_items_provider.dart';
+import 'package:meet_shop/provider/cart_provider.dart';
 import 'package:meet_shop/provider/marinated_items_provider.dart';
 import 'package:meet_shop/provider/meat_items_provider.dart';
 import 'package:meet_shop/provider/ready_to_cook_items_provider.dart';

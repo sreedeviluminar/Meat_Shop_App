@@ -35,7 +35,7 @@ class ItemTile extends StatelessWidget {
                 border: Border.all(color: Colors.black)),
             child: Column(
               children: [
-                Expanded(
+                Flexible(
                     flex: 3,
                     child: Container(
                       decoration: BoxDecoration(
@@ -48,8 +48,8 @@ class ItemTile extends StatelessWidget {
                               ),
                               fit: BoxFit.fill)),
                     )),
-                Expanded(
-                    flex: 3,
+                Flexible(
+                    flex: 4,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
@@ -57,15 +57,22 @@ class ItemTile extends StatelessWidget {
                         children: [
                           Text(
                             ItemName,
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(fontSize: 15),
                           ),
-                          const SizedBox(
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Text(
+                            '₹ ' + ItemPrice,
+                            style: TextStyle(fontSize: 12),
+                          ),
+                          SizedBox(
                             height: 5,
                           ),
                           ElevatedButton(
                             onPressed: onPressed,
                             child: Text(
-                              '₹ ' + ItemPrice,
+                              "Add to Cart",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,

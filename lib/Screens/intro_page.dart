@@ -26,7 +26,9 @@ class IntroPage extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style:
                 TextStyle(fontSize: 15,fontWeight: FontWeight.bold, ),),
-              Spacer(),
+              SizedBox(
+                height: 50,
+              ),
               // get started button
               GestureDetector(
                 onTap: () => Navigator.pushReplacement(

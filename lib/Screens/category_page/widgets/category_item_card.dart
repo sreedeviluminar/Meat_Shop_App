@@ -24,7 +24,7 @@ class CategoryItemTile extends StatelessWidget {
               border: Border.all(color: Colors.black)),
           child: Column(
             children: [
-              Expanded(
+              Flexible(
                   flex: 4,
                   child: Container(
                     decoration: BoxDecoration(
@@ -37,8 +37,8 @@ class CategoryItemTile extends StatelessWidget {
                             ),
                             fit: BoxFit.fitWidth)),
                   )),
-              Expanded(
-                  flex: 4,
+              Flexible(
+                  flex: 5,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
@@ -57,7 +57,6 @@ class CategoryItemTile extends StatelessWidget {
                           child: Text("View more",
                             style: TextStyle(
                               color: Colors.white,
-                              fontWeight: FontWeight.bold,
                             ),
                           ),
                           style: ButtonStyle(

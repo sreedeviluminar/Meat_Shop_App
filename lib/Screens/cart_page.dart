@@ -46,11 +46,21 @@ class CartPage extends StatelessWidget {
                             leading: Image.asset(value.cartItems[index][2]),
                             title: Text(value.cartItems[index][0]),
                             subtitle: Text('₹ ' + value.cartItems[index][1]),
-                            trailing: IconButton(
-                              onPressed: () =>
-                                  Provider.of<CartProvider>(context, listen: false)
-                                      .removeItemFromCart(index),
-                              icon: Icon(Icons.delete_outline_sharp),
+                            trailing: Row(
+                              children: [
+                                IconButton(
+                                  onPressed: () =>
+                                      Provider.of<CartProvider>(context, listen: false)
+                                          .addItemToCart(index),
+                                  icon: Icon(Icons.delete_outline_sharp),
+                                ),
+                                IconButton(
+                                  onPressed: () =>
+                                      Provider.of<CartProvider>(context, listen: false)
+                                          .removeItemFromCart(index),
+                                  icon: Icon(Icons.delete_outline_sharp),
+                                ),
+                              ],
                             ),
                           ),
                         ),

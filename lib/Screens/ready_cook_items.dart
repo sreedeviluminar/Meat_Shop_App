@@ -9,18 +9,38 @@ class ReadyToCookItems extends StatelessWidget {
 
    var rtcItemName = [
      "Fried Chicken",
+     "Mock Meat",
+     "Roast Pork",
+     "Soya Tikka",
+     "Like chicken",
+     "Vindaloo Paste",
    ];
    var rtcImagePath = [
      "assets/rtc_friedchicken.jpg",
+     "assets/rtc_mockmeat.png",
+     "assets/rtc_roast_pork.jpg",
+     "assets/rtc_soya.jpg",
+     "assets/rtc_vegan Like Chicken.jpg",
+     "assets/rtc_vindaloo_paste.jpg"
    ];
    var rtcItemPrice = [
-     "370/kg",
+     "370",
+     "210",
+     "430",
+     "120",
+     "260",
+     "180"
    ];
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          iconTheme: IconThemeData(color: Colors.black),
+        ),
         floatingActionButton: FloatingActionButton(backgroundColor: Colors.black,
           onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) {
             return CartPage();
@@ -40,27 +60,24 @@ class ReadyToCookItems extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Container(child:
-                Consumer<CartProvider>(builder: (context, value, child) {
-                  return GridView.builder(
-                      itemCount: value.shopItems.length,
-                      physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          childAspectRatio: 1/1.2),
-                      itemBuilder: (context, index) {
-                        return ItemTile(
-                          ItemName: rtcItemName[index],
-                          ItemPrice: rtcItemPrice[index],
-                          ImagePath: rtcImagePath[index],
-                          color: Colors.green,
-                          onPressed: () {
-                            Provider.of<CartProvider>(context, listen: false).addItemToCart(index);
-                          },
-                        );
-                      });
-                }))
+                GridView.builder(
+                    itemCount: rtcItemName.length,
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: 1/1.2),
+                    itemBuilder: (context, index) {
+                      return ItemTile(
+                        ItemName: rtcItemName[index],
+                        ItemPrice: rtcItemPrice[index],
+                        ImagePath: rtcImagePath[index],
+                        color: Colors.green,
+                        onPressed: () {
+                          Provider.of<CartProvider>(context, listen: false).addItemToCart(index);
+                        },
+                      );
+                    })
               ],
             ),
           ),

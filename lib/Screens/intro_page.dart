@@ -27,7 +27,7 @@ class IntroPage extends StatelessWidget {
                 style:
                 TextStyle(fontSize: 15,fontWeight: FontWeight.bold, ),),
               SizedBox(
-                height: 50,
+                height: 40,
               ),
               // get started button
               GestureDetector(
@@ -55,7 +55,6 @@ class IntroPage extends StatelessWidget {
                   ),
                 ),
               ),
-              Spacer(),
             ],
           ),
         )

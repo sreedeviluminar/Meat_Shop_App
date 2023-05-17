@@ -35,6 +35,11 @@ class MeatItems extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          iconTheme: IconThemeData(color: Colors.black),
+        ),
         floatingActionButton: FloatingActionButton(backgroundColor: Colors.black,
           onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) {
             return CartPage();
@@ -54,27 +59,24 @@ class MeatItems extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Container(child:
-                Consumer<CartProvider>(builder: (context, value, child) {
-                  return GridView.builder(
-                      itemCount: value.shopItems.length,
-                      physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          childAspectRatio: 1/1.2),
-                      itemBuilder: (context, index) {
-                        return ItemTile(
-                          ItemName: meatItemName[index],
-                          ItemPrice: meatItemPrice[index],
-                          ImagePath: meatImagePath[index],
-                          color: Colors.green,
-                          onPressed: () {
-                            Provider.of<CartProvider>(context, listen: false).addItemToCart(index);
-                          },
-                        );
-                      });
-                }))
+                GridView.builder(
+                    itemCount: meatItemName.length,
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: 1/1.2),
+                    itemBuilder: (context, index) {
+                      return ItemTile(
+                        ItemName: meatItemName[index],
+                        ItemPrice: meatItemPrice[index],
+                        ImagePath: meatImagePath[index],
+                        color: Colors.green,
+                        onPressed: () {
+                          Provider.of<CartProvider>(context, listen: false).addItemToCart(index);
+                        },
+                      );
+                    })
               ],
             ),
           ),

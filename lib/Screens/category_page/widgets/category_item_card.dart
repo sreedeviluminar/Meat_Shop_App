@@ -38,7 +38,7 @@ class CategoryItemTile extends StatelessWidget {
                             fit: BoxFit.fitWidth)),
                   )),
               Flexible(
-                  flex: 5,
+                  flex: 3,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(

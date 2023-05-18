@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:meet_shop/provider/cart_provider.dart';
 import 'package:provider/provider.dart';
 
-import 'meat_items.dart';
-
-
 class CartPage extends StatelessWidget {
   const CartPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    var carthome = context.watch<CartProvider>().cartall;
+
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -32,7 +32,7 @@ class CartPage extends StatelessWidget {
               ),
               ListView.builder(
                 shrinkWrap: true,
-                itemCount: meatItemName.length,
+                itemCount: carthome.length,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.only(
@@ -44,9 +44,9 @@ class CartPage extends StatelessWidget {
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(8)),
                       child: ListTile(
-                        leading: Image.asset(meatImagePath[index]),
-                        title: Text(meatItemName[index]),
-                        subtitle: Text('₹ ' + meatItemPrice[index]),
+                        leading: Image.asset(carthome[index][1]),
+                        title: Text(carthome[index][0]),
+                        subtitle: Text('₹ ' + carthome[index][2]),
                         trailing: Row(
                           children: [
                             IconButton(
@@ -60,15 +60,6 @@ class CartPage extends StatelessWidget {
                                   Provider.of<CartProvider>(context, listen: false)
                                       .removeFishItemToCart(index),
                               icon: Icon(Icons.remove_shopping_cart_outlined),
-                            ),
-                            SizedBox(
-                              width: 8,
-                            ),
-                            IconButton(
-                              onPressed: () =>
-                                  Provider.of<CartProvider>(context, listen: false)
-                                      .removeItemFromCart(index),
-                              icon: Icon(Icons.delete_outline_sharp),
                             ),
                           ],
                         ),
@@ -92,12 +83,12 @@ class CartPage extends StatelessWidget {
                           SizedBox(
                             height: 5,
                           ),
-                          Text(calculateTotal(),
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold
-                            ),)
+                          // Text(value.calculateTotal(),
+                          //   style: TextStyle(
+                          //       color: Colors.white,
+                          //       fontSize: 18,
+                          //       fontWeight: FontWeight.bold
+                          //   ),)
                         ],
                       ),
                       Container(

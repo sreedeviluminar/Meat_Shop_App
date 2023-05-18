@@ -18,8 +18,8 @@ class Category extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Hey User",style: TextStyle(
-                      fontSize: 30,
+                    Text("Hey User,",style: TextStyle(
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),),
                     SizedBox(
@@ -39,7 +39,7 @@ class Category extends StatelessWidget {
                       thickness: 4,
                     ),
                     Text(
-                      "Fresh Items",
+                      "Categories",
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

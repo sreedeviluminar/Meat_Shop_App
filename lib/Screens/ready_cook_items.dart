@@ -4,29 +4,16 @@ import '../components/item_tile.dart';
 import '../provider/cart_provider.dart';
 import 'cart_page.dart';
 
-var rtcItemName = [
-  "Fried Chicken",
-  "Mock Meat",
-  "Roast Pork",
-  "Soya Tikka",
-  "Like chicken",
-  "Vindaloo Paste",
-];
-var rtcImagePath = [
-  "assets/rtc_friedchicken.jpg",
-  "assets/rtc_mockmeat.png",
-  "assets/rtc_roast_pork.jpg",
-  "assets/rtc_soya.jpg",
-  "assets/rtc_vegan Like Chicken.jpg",
-  "assets/rtc_vindaloo_paste.jpg"
-];
-var rtcItemPrice = ["370", "210", "430", "120", "260", "180"];
 
 class ReadyToCookItems extends StatelessWidget {
   ReadyToCookItems({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    var readytocookhome = context.watch<CartProvider>().readytocookhome;
+    var readytocookcart = context.watch<CartProvider>().cartall;
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -41,9 +28,14 @@ class ReadyToCookItems extends StatelessWidget {
               return CartPage();
             },
           )),
-          child: const Icon(
-            Icons.shopping_bag,
-            color: Colors.white,
+          child: Wrap(
+              children: [
+                Icon(
+                  Icons.shopping_bag,
+                  color: Colors.white,
+                ),
+                Text("${readytocookcart.length}")
+              ]
           ),
         ),
         body: Padding(
@@ -61,16 +53,16 @@ class ReadyToCookItems extends StatelessWidget {
                   ),
                 ),
                 GridView.builder(
-                    itemCount: rtcItemName.length,
+                    itemCount: readytocookhome.length,
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2, childAspectRatio: 1 / 1.2),
                     itemBuilder: (context, index) {
                       return ItemTile(
-                        ItemName: rtcItemName[index],
-                        ItemPrice: rtcItemPrice[index],
-                        ImagePath: rtcImagePath[index],
+                        ItemName: readytocookhome[index][0],
+                        ItemPrice: readytocookhome[index][2],
+                        ImagePath: readytocookhome[index][1],
                         color: Colors.green,
                         onPressed: () {
                           Provider.of<CartProvider>(context, listen: false)

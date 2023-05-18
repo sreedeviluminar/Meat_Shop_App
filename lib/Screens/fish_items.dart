@@ -4,39 +4,13 @@ import '../components/item_tile.dart';
 import '../provider/cart_provider.dart';
 import 'cart_page.dart';
 
-var fishitemName = [
-  "Tuna",
-  "Prawn",
-  "Salmon",
-  "Lobster",
-  "Mackerel",
-  "Squid",
-  "Kari Meen",
-];
-var fishimagePath = [
-  "assets/fi_tuna.jpg",
-  "assets/fi_prawns.jpg",
-  "assets/fi_salmon.jpeg",
-  "assets/fi_lobster.jpg",
-  "assets/fi_mackerel.jpg",
-  "assets/fi_squid.jpg",
-  "assets/fi_karimeen.jpg",
-];
-var fishitemPrice = [
-  "120/Kg",
-  "100/Kg",
-  "500/Kg",
-  "800/Kg",
-  "150/Kg",
-  "210/Kg",
-  "600/Kg"
-];
-
 class FishItems extends StatelessWidget {
   FishItems({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var fishhome = context.watch<CartProvider>().fishhome;
+    var fishcart = context.watch<CartProvider>().cartall;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -51,9 +25,14 @@ class FishItems extends StatelessWidget {
               return CartPage();
             },
           )),
-          child: const Icon(
-            Icons.shopping_bag,
-            color: Colors.white,
+          child: Wrap(
+            children: [
+            Icon(
+              Icons.shopping_bag,
+              color: Colors.white,
+            ),
+              Text("${fishcart.length}")
+            ]
           ),
         ),
         body: Padding(
@@ -71,16 +50,16 @@ class FishItems extends StatelessWidget {
                   ),
                 ),
                 GridView.builder(
-                    itemCount: fishitemName.length,
+                    itemCount: fishhome.length,
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2, childAspectRatio: 1 / 1.2),
                     itemBuilder: (context, index) {
                       return ItemTile(
-                        ItemName: fishitemName[index],
-                        ItemPrice: fishitemPrice[index],
-                        ImagePath: fishimagePath[index],
+                        ItemName: fishhome[index][0],
+                        ItemPrice: fishhome[index][2],
+                        ImagePath: fishhome[index][1 ],
                         color: Colors.green,
                         onPressed: () {
                           Provider.of<CartProvider>(context, listen: false)

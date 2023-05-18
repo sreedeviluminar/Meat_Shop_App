@@ -4,33 +4,16 @@ import '../components/item_tile.dart';
 import '../provider/cart_provider.dart';
 import 'cart_page.dart';
 
-var meatItemName = [
-  "Chicken",
-  "Mutton",
-  "Beef",
-  "Pork",
-  "Duck",
-];
-var meatImagePath = [
-  "assets/m_chichen.jpg",
-  "assets/m_mutton.jpg",
-  "assets/m_beef.jpg",
-  "assets/m_pork.jpg",
-  "assets/m_duck.jpg",
-];
-var meatItemPrice = [
-  "120/Kg",
-  "350/Kg",
-  "550/Kg",
-  "620/Kg",
-  "400/Kg",
-];
 
 class MeatItems extends StatelessWidget {
   MeatItems({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    var meathome = context.watch<CartProvider>().meathome;
+    var marinatedcart = context.watch<CartProvider>().cartall;
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -45,9 +28,14 @@ class MeatItems extends StatelessWidget {
               return CartPage();
             },
           )),
-          child: const Icon(
-            Icons.shopping_bag,
-            color: Colors.white,
+          child:  Wrap(
+              children: [
+                Icon(
+                  Icons.shopping_bag,
+                  color: Colors.white,
+                ),
+                Text("${marinatedcart.length}")
+              ]
           ),
         ),
         body: Padding(
@@ -65,16 +53,16 @@ class MeatItems extends StatelessWidget {
                   ),
                 ),
                 GridView.builder(
-                    itemCount: meatItemName.length,
+                    itemCount: meathome.length,
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2, childAspectRatio: 1 / 1.2),
                     itemBuilder: (context, index) {
                       return ItemTile(
-                        ItemName: meatItemName[index],
-                        ItemPrice: meatItemPrice[index],
-                        ImagePath: meatImagePath[index],
+                        ItemName: meathome[index][0],
+                        ItemPrice: meathome[index][2],
+                        ImagePath: meathome[index][1],
                         color: Colors.green,
                         onPressed: () {
                           Provider.of<CartProvider>(context, listen: false)

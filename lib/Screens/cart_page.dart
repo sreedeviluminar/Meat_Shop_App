@@ -51,8 +51,17 @@ class CartPage extends StatelessWidget {
                                 IconButton(
                                   onPressed: () =>
                                       Provider.of<CartProvider>(context, listen: false)
-                                          .addMeatItemToCart(index),
+                                          .addFishItemToCart(index),
                                   icon: Icon(Icons.add_shopping_cart_outlined),
+                                ),
+                                IconButton(
+                                  onPressed: () =>
+                                      Provider.of<CartProvider>(context, listen: false)
+                                          .removeFishItemToCart(index),
+                                  icon: Icon(Icons.remove_shopping_cart_outlined),
+                                ),
+                                SizedBox(
+                                  width: 8,
                                 ),
                                 IconButton(
                                   onPressed: () =>

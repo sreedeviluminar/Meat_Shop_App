@@ -21,8 +21,7 @@ class CartProvider extends ChangeNotifier {
     // ["Prawn", "1.0", "assets/fi_prawns.jpg", Colors.green],
   ];
 
-
-  List _cartItems = [];
+  final List _cartItems = [];
 
   get fishItems => _fishItems;
 
@@ -51,6 +50,25 @@ class CartProvider extends ChangeNotifier {
 
   void addReadyToCookItemToCart(int index) {
     _cartItems.add(_readyToCookItems[index]);
+    notifyListeners();
+  }
+
+  void removeFishItemToCart(int index) {
+    _cartItems.removeAt(_fishItems[index]);
+    notifyListeners();
+  }
+  void removeMeatItemToCart(int index) {
+    _cartItems.removeAt(_meatItems[index]);
+    notifyListeners();
+  }
+
+  void removeMarinatedItemToCart(int index) {
+    _cartItems.removeAt(_marinatedItems[index]);
+    notifyListeners();
+  }
+
+  void removeReadyToCookItemToCart(int index) {
+    _cartItems.removeAt(_readyToCookItems[index]);
     notifyListeners();
   }
 

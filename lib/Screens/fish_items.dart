@@ -77,7 +77,7 @@ class FishItems extends StatelessWidget {
                         ImagePath: fishimagePath[index],
                         color: Colors.green,
                         onPressed: () {
-                          Provider.of<CartProvider>(context, listen: false).addItemToCart(index);
+                          Provider.of<CartProvider>(context, listen: false).addFishItemToCart(index);
                         },
                       );
                     })

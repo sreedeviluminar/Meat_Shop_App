@@ -1,24 +1,56 @@
 import 'package:flutter/material.dart';
 
 class CartProvider extends ChangeNotifier {
-  final List _shopItems = [
+  final List _fishItems = [
     // ["Tuna", "4.0", "assets/fi_tuna.jpg", Colors.green],
     // ["Prawn", "1.0", "assets/fi_prawns.jpg", Colors.green],
-    // ["Salmon", "3.0", "assets/fi_salmon.jpeg", Colors.green],
-    // ["Lobster", "1.2", "assets/fi_lobster.jpg", Colors.green],
-    // ["Mackerel", "2.0", "assets/fi_mackerel.jpg", Colors.green],
-    // ["Squid", "1.0", "assets/fi_squid.jpg", Colors.green],
-    // ["Kari Meen", "1.0", "assets/fi_karimeen.jpg", Colors.green],
   ];
+
+  final List _meatItems = [
+    // ["Tuna", "4.0", "assets/fi_tuna.jpg", Colors.green],
+    // ["Prawn", "1.0", "assets/fi_prawns.jpg", Colors.green],
+  ];
+
+  final List _marinatedItems = [
+    // ["Tuna", "4.0", "assets/fi_tuna.jpg", Colors.green],
+    // ["Prawn", "1.0", "assets/fi_prawns.jpg", Colors.green],
+  ];
+
+  final List _readyToCookItems = [
+    // ["Tuna", "4.0", "assets/fi_tuna.jpg", Colors.green],
+    // ["Prawn", "1.0", "assets/fi_prawns.jpg", Colors.green],
+  ];
+
 
   List _cartItems = [];
 
-  get shopItems => _shopItems;
+  get fishItems => _fishItems;
+
+  get meatItems => _meatItems;
+
+  get marinatedItems => _marinatedItems;
+
+  get readyToCookItems => _readyToCookItems;
 
   get cartItems => _cartItems;
 
-  void addItemToCart(int index) {
-    _cartItems.add(_shopItems[index]);
+  void addFishItemToCart(int index) {
+    _cartItems.add(_fishItems[index]);
+    notifyListeners();
+  }
+
+  void addMeatItemToCart(int index) {
+    _cartItems.add(_meatItems[index]);
+    notifyListeners();
+  }
+
+  void addMarinatedItemToCart(int index) {
+    _cartItems.add(_marinatedItems[index]);
+    notifyListeners();
+  }
+
+  void addReadyToCookItemToCart(int index) {
+    _cartItems.add(_readyToCookItems[index]);
     notifyListeners();
   }
 

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../components/item_tile.dart';
 import '../provider/cart_provider.dart';
-import '../provider/meat_items_provider.dart';
 import 'cart_page.dart';
 
 class MeatItems extends StatelessWidget {
@@ -73,7 +71,7 @@ class MeatItems extends StatelessWidget {
                         ImagePath: meatImagePath[index],
                         color: Colors.green,
                         onPressed: () {
-                          Provider.of<CartProvider>(context, listen: false).addItemToCart(index);
+                          Provider.of<CartProvider>(context, listen: false).addMeatItemToCart(index);
                         },
                       );
                     })

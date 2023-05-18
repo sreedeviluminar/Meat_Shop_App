@@ -67,7 +67,7 @@ class MarinatedItems extends StatelessWidget {
                         ImagePath: mimagePath[index],
                         color: Colors.green,
                         onPressed: () {
-                          Provider.of<CartProvider>(context, listen: false).addItemToCart(index);
+                          Provider.of<CartProvider>(context, listen: false).addMarinatedItemToCart(index);
                         },
                       );
                     })

@@ -74,7 +74,7 @@ class ReadyToCookItems extends StatelessWidget {
                         ImagePath: rtcImagePath[index],
                         color: Colors.green,
                         onPressed: () {
-                          Provider.of<CartProvider>(context, listen: false).addItemToCart(index);
+                          Provider.of<CartProvider>(context, listen: false).addReadyToCookItemToCart(index);
                         },
                       );
                     })

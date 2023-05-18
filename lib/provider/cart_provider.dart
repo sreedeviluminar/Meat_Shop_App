@@ -1,25 +1,13 @@
 import 'package:flutter/material.dart';
 
 class CartProvider extends ChangeNotifier {
-  final List _fishItems = [
-    // ["Tuna", "4.0", "assets/fi_tuna.jpg", Colors.green],
-    // ["Prawn", "1.0", "assets/fi_prawns.jpg", Colors.green],
-  ];
+  final List _fishItems = [];
 
-  final List _meatItems = [
-    // ["Tuna", "4.0", "assets/fi_tuna.jpg", Colors.green],
-    // ["Prawn", "1.0", "assets/fi_prawns.jpg", Colors.green],
-  ];
+  final List _meatItems = [];
 
-  final List _marinatedItems = [
-    // ["Tuna", "4.0", "assets/fi_tuna.jpg", Colors.green],
-    // ["Prawn", "1.0", "assets/fi_prawns.jpg", Colors.green],
-  ];
+  final List _marinatedItems = [];
 
-  final List _readyToCookItems = [
-    // ["Tuna", "4.0", "assets/fi_tuna.jpg", Colors.green],
-    // ["Prawn", "1.0", "assets/fi_prawns.jpg", Colors.green],
-  ];
+  final List _readyToCookItems = [];
 
   final List _cartItems = [];
 
@@ -80,7 +68,7 @@ class CartProvider extends ChangeNotifier {
   String calculateTotal() {
     double totalPrice = 0;
     for (int i = 0; i < _cartItems.length; i++) {
-      totalPrice += double.parse(_cartItems[i][1]);
+      totalPrice += double.parse(_cartItems[i]);
     }
     return totalPrice.toStringAsFixed(2);
   }

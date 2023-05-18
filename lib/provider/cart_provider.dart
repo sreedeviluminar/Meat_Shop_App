@@ -69,7 +69,7 @@ class CartProvider extends ChangeNotifier {
   }
 
 
-  String calculateTotal() {
+  String calculateTotal(Products data) {
     double totalPrice = 0;
     for (int i = 0; i < cart.length; i++) {
       //totalPrice += double.parse(cart[i]);

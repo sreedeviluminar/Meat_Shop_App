@@ -59,14 +59,15 @@ class MeatItems extends StatelessWidget {
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2, childAspectRatio: 1 / 1.2),
                     itemBuilder: (context, index) {
+                      var meat= meathome[index];
                       return ItemTile(
-                        ItemName: meathome[index][0],
-                        ItemPrice: meathome[index][2],
-                        ImagePath: meathome[index][1],
+                        ItemName: meat.name,
+                        ItemPrice: "${meat.price}",
+                        ImagePath: meat.image,
                         color: Colors.green,
                         onPressed: () {
                           Provider.of<CartProvider>(context, listen: false)
-                              .addMeatItemToCart(index);
+                              .addToCart(meat);
                         },
                       );
                     })

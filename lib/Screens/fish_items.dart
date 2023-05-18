@@ -56,14 +56,14 @@ class FishItems extends StatelessWidget {
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2, childAspectRatio: 1 / 1.2),
                     itemBuilder: (context, index) {
+                      var fish= fishhome[index];
                       return ItemTile(
-                        ItemName: fishhome[index][0],
-                        ItemPrice: fishhome[index][2],
-                        ImagePath: fishhome[index][1 ],
+                        ItemName: fish.name,
+                        ItemPrice: "${fish.price}",
+                        ImagePath: fish.image,
                         color: Colors.green,
                         onPressed: () {
-                          Provider.of<CartProvider>(context, listen: false)
-                              .addFishItemToCart(index);
+                        context.read<CartProvider>().addToCart(fish);
                         },
                       );
                     })

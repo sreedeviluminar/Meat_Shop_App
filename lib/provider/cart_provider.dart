@@ -1,139 +1,78 @@
 import 'package:flutter/material.dart';
 
-var fish= [
-  [
-    "Tuna",
-    "assets/fi_tuna.jpg",
-    "120/Kg",
-  ],
-  [
-    "Prawn",
-    "assets/fi_prawns.jpg",
-    "100/Kg",
-  ],
-  [
-    "Salmon",
-    "assets/fi_salmon.jpeg",
-    "500/Kg",
-  ],
-  [
-    "Lobster",
-    "assets/fi_lobster.jpg",
-    "800/Kg",
-  ],
-  [
-    "Mackerel",
-    "assets/fi_mackerel.jpg",
-    "150/Kg",
-  ],
-  [
-    "Squid",
-    "assets/fi_squid.jpg",
-    "210/Kg",
-  ],
-  ["Kari Meen", "assets/fi_karimeen.jpg", "600/Kg"]
+import '../models/model.dart';
+
+List<Products> fish = [
+  Products(name: "Tuna", price: 120, image: "assets/fi_tuna.jpg"),
+  Products(name: "Prawns", price: 100, image: "assets/fi_prawns.jpg"),
+  Products(name: "Salmon", price: 500, image: "assets/fi_salmon.jpeg"),
+  Products(name: "Lobster", price: 800, image: "assets/fi_lobster.jpg"),
+  Products(name: "Mackerel", price: 150, image: "assets/fi_mackerel.jpg"),
+  Products(name: "Squid", price: 210, image: "assets/fi_squid.jpg"),
+  Products(name: "Karimeen", price: 600, image: "assets/fi_karimeen.jpg"),
+];
+List<Products> marinated = [
+  Products(name: "Chicken", price: 350, image: "assets/ma_chicken.jpg",),
+  Products(name: "Fish", price: 260, image: "assets/ma_fish.jpg",),
+  Products(name: "Beef", price: 580, image: "assets/ma_beef.jpg",),
+  Products(name: "Mutton", price: 800, image: "assets/ma_mutton.jpg",),
 ];
 
-var marinated = [
-  ["Chicken","assets/ma_chicken.jpg","350/Kg",],
-  ["Fish","assets/ma_fish.jpg","260/Kg",],
-  ["Beef","assets/ma_beef.jpg","580/Kg",],
-  ["Mutton","assets/ma_mutton.jpg","800/Kg",]
+List<Products> meat = [
+  Products(name: "Chicken", price: 120, image: "assets/m_chichen.jpg",),
+  Products(name: "Mutton", price: 350, image: "assets/m_mutton.jpg",),
+  Products(name: "Beef", price: 550, image: "assets/m_beef.jpg",),
+  Products(name: "Pork", price: 620, image: "assets/m_pork.jpg",),
+  Products(name: "Duck", price: 400, image: "assets/m_duck.jpg",),
 ];
 
-var meat = [
-  ["Chicken","assets/m_chichen.jpg","120/Kg",],
-  ["Mutton","assets/m_mutton.jpg","350/Kg",],
-  ["Beef","assets/m_beef.jpg","550/Kg",],
-  ["Pork","assets/m_pork.jpg","620/Kg",],
-  ["Duck","assets/m_duck.jpg","400/Kg",]
+List<Products> readytocook = [
+  Products(name: "Fried Chicken", price: 370, image: "assets/rtc_friedchicken.jpg",),
+  Products(name: "Mock Meat", price: 210, image: "assets/rtc_mockmeat.png",),
+  Products(name: "Roast Pork", price: 430, image: "assets/rtc_roast_pork.jpg",),
+  Products(name: "Soya Tikka", price: 120, image: "assets/rtc_soya.jpg",),
+  Products(name: "Like chicken", price: 260, image: "assets/rtc_vegan Like Chicken.jpg",),
+  Products(name: "Vindaloo Paste", price: 180, image: "assets/rtc_vindaloo_paste.jpg",),
 ];
-
-var readytocook = [
-  ["Fried Chicken","assets/rtc_friedchicken.jpg","370",],
-  ["Mock Meat","assets/rtc_mockmeat.png","210",],
-  ["Roast Pork","assets/rtc_roast_pork.jpg","430",],
-  ["Soya Tikka","assets/rtc_soya.jpg","120",],
-  ["Like chicken","assets/rtc_vegan Like Chicken.jpg","260",],
-  ["Vindaloo Paste","assets/rtc_vindaloo_paste.jpg","180"]
-];
-
 
 class CartProvider extends ChangeNotifier {
 
-  var fishh= fish;
-  List  get fishhome => fishh;
+  var fishh = fish;
 
-  final List cart = [];
-  List get cartall => cart;
+  List<Products> get fishhome => fishh;
 
-  void addFishItemToCart(int index) {
-    cart.add(cart[index]);
-    notifyListeners();
-  }
-  void removeFishItemToCart(int index) {
-    cart.removeAt(cart[index]);
-    notifyListeners();
-  }
+  var marinateh = marinated;
 
-  var marinatedh= marinated;
-  List  get marinatedhome => marinatedh;
+  List<Products> get marinatedhome => marinateh;
 
-  void addMarinatedItemToCart(int index) {
-    cart.add(cart[index]);
-    notifyListeners();
-  }
-  void removeMarinatedItemToCart(int index) {
-    cart.removeAt(cart[index]);
-    notifyListeners();
-  }
+  var meath = meat;
 
-  var meath= meat;
-  List  get meathome => meath;
-
-  void addMeatItemToCart(int index) {
-    cart.add(cart[index]);
-    notifyListeners();
-  }
-
-  void removeMeatItemToCart(int index) {
-    cart.removeAt(cart[index]);
-    notifyListeners();
-  }
+  List<Products> get meathome => meath;
 
   var readytocookh = readytocook;
-  List  get readytocookhome => readytocookh;
 
-  void addReadyToCookItemToCart(int index) {
-    cart.add(cart[index]);
+  List<Products> get readytocookhome => readytocookh;
+
+
+  final List<Products> cart = [];
+
+  List<Products> get cartall => cart;
+
+  void addToCart(Products data) {
+    cart.add(data);
     notifyListeners();
   }
 
-  void removeReadyToCookItemToCart(int index) {
-    cart.removeAt(cart[index]);
+  void removeFromCart(Products data) {
+    cart.remove(data);
     notifyListeners();
   }
 
-  // final List _meatItems = [];
-  //
-  // final List _marinatedItems = [];
-  //
-  // final List _readyToCookItems = [];
-  //
-  // final List _cartItems = [];
-  //
-  // get meatItems => _meatItems;
-  //
-  // get marinatedItems => _marinatedItems;
-  //
-  // get readyToCookItems => _readyToCookItems;
-  //
-  // get cartItems => _cartItems;
 
   String calculateTotal() {
     double totalPrice = 0;
     for (int i = 0; i < cart.length; i++) {
-      totalPrice += double.parse(cart[i]);
+      //totalPrice += double.parse(cart[i]);
     }
     return totalPrice.toStringAsFixed(2);
   }

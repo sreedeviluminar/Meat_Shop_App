@@ -60,14 +60,15 @@ class MarinatedItems extends StatelessWidget {
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2, childAspectRatio: 1 / 1.2),
                     itemBuilder: (context, index) {
+                      var marinated= marinatedhome[index];
                       return ItemTile(
-                        ItemName: marinatedhome[index][0],
-                        ItemPrice: marinatedhome[index][2],
-                        ImagePath: marinatedhome[index][1],
+                        ItemName: marinated.name,
+                        ItemPrice: "${marinated.price}",
+                        ImagePath: marinated.image,
                         color: Colors.green,
                         onPressed: () {
                           Provider.of<CartProvider>(context, listen: false)
-                              .addMarinatedItemToCart(index);
+                              .addToCart(marinated);
                         },
                       );
                     })

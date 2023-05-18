@@ -59,14 +59,15 @@ class ReadyToCookItems extends StatelessWidget {
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2, childAspectRatio: 1 / 1.2),
                     itemBuilder: (context, index) {
+                      var readytocook= readytocookhome[index];
                       return ItemTile(
-                        ItemName: readytocookhome[index][0],
-                        ItemPrice: readytocookhome[index][2],
-                        ImagePath: readytocookhome[index][1],
+                        ItemName: readytocook.name,
+                        ItemPrice: "${readytocook.price}",
+                        ImagePath: readytocook.image,
                         color: Colors.green,
                         onPressed: () {
                           Provider.of<CartProvider>(context, listen: false)
-                              .addReadyToCookItemToCart(index);
+                              .addToCart(readytocook);
                         },
                       );
                     })

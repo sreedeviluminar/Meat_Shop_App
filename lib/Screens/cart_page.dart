@@ -17,6 +17,7 @@ class CartPage extends StatelessWidget {
           iconTheme: IconThemeData(color: Colors.black),
         ),
         body: SingleChildScrollView(
+          physics: NeverScrollableScrollPhysics(),
           child: Padding(
             padding: const EdgeInsets.all(15),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,6 +33,7 @@ class CartPage extends StatelessWidget {
                   height: 20,
                 ),
                 ListView.builder(
+                  physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: carthome.length,
                   itemBuilder: (context, index) {

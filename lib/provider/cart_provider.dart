@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../models/model.dart';
 
 List<Products> fish = [
@@ -59,7 +58,12 @@ class CartProvider extends ChangeNotifier {
   List<Products> get cartall => cart;
 
   void addToCart(Products data) {
-    cart.add(data);
+    int index = cart.indexWhere((element) => element == data);
+    if (index != -1 ) {
+      cart[index].count =cart[index].count +1;
+    }else {
+      cart.add(data);
+    }
     notifyListeners();
   }
 
@@ -68,12 +72,4 @@ class CartProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-
-  String calculateTotal(Products data) {
-    double totalPrice = 0;
-    for (int i = 0; i < cart.length; i++) {
-      //totalPrice += double.parse(cart[i]);
-    }
-    return totalPrice.toStringAsFixed(2);
-  }
 }

@@ -57,7 +57,7 @@ class MeatItems extends StatelessWidget {
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2, childAspectRatio: 1 / 1.2),
+                        crossAxisCount: 2, childAspectRatio:0.8),
                     itemBuilder: (context, index) {
                       var meat= meathome[index];
                       return ItemTile(

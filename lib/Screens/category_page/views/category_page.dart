@@ -49,7 +49,7 @@ class Category extends StatelessWidget {
                         shrinkWrap: true,
                         physics: NeverScrollableScrollPhysics(),
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,childAspectRatio: 1/1.2),
+                            crossAxisCount: 2,childAspectRatio: 0.8),
                         children: [
                           CategoryItemTile(
                             CategoryName: "Meat",

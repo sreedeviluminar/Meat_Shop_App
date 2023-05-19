@@ -8,7 +8,10 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var carthome = context.watch<CartProvider>().cartall;
-    int totalAmount = 0;
+    num totalAmount = 0;
+    for (var item in carthome) {
+      totalAmount += (item.price * item.count);
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -88,7 +91,7 @@ class CartPage extends StatelessWidget {
                             height: 5,
                           ),
                           Text(
-                            '₹ ${totalAmount}',
+                            '₹ ${totalAmount.toString()}',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 18,

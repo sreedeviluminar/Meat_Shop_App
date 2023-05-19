@@ -4,5 +4,5 @@ class Products {
   final String image;
   int count;
 
-  Products({required this.name, required this.price, required this.image, this.count = 0});
+  Products({required this.name, required this.price, required this.image, this.count = 1});
 }

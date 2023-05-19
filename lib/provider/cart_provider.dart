@@ -68,8 +68,15 @@ class CartProvider extends ChangeNotifier {
   }
 
   void removeFromCart(Products data) {
-    cart.remove(data);
-    notifyListeners();
+    int index = cart.indexWhere((element) => element == data);
+    if (index != -1) {
+      if (cart[index].count > 1) {
+        cart[index].count--;
+      } else {
+        cart.removeAt(index);
+      }
+      notifyListeners();
+    }
   }
 
 }

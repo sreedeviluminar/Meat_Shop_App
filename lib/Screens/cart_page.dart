@@ -20,7 +20,7 @@ class CartPage extends StatelessWidget {
         iconTheme: IconThemeData(color: Colors.black),
       ),
       body: SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
+        physics: ScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.all(15),
           child: Column(

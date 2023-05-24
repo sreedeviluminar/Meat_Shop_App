@@ -9,7 +9,8 @@ class IntroPage extends StatelessWidget {
     return Scaffold(
         body: Padding(
           padding: const EdgeInsets.all(15),
-          child: Column(
+          child: ListView(
+            shrinkWrap: true,
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 40, right: 40,bottom: 40,top: 80),

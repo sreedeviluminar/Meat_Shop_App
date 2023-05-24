@@ -35,7 +35,7 @@ class CategoryItemTile extends StatelessWidget {
                             image: AssetImage(
                               ImagePath,
                             ),
-                            fit: BoxFit.fitWidth)),
+                            fit: BoxFit.cover)),
                   )),
               Flexible(
                   flex: 3,

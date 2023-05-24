@@ -45,61 +45,64 @@ class Category extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    GridView(
-                        shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,childAspectRatio: 0.8),
-                        children: [
-                          CategoryItemTile(
-                            CategoryName: "Meat",
-                            ImagePath: "assets/cate_meat.jpg",
-                            onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(
-                                builder: (context) {
-                                  return MeatItems();
-                                },
-                              ));
-                            },
-                            color: Colors.green,
-                          ),
-                          CategoryItemTile(
-                            CategoryName: "Fish",
-                            ImagePath: "assets/cate_fish.jpg",
-                            onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(
-                                builder: (context) {
-                                  return FishItems();
-                                },
-                              ));
-                            },
-                            color: Colors.green,
-                          ),
-                          CategoryItemTile(
-                            CategoryName: "Marinated Items",
-                            ImagePath: "assets/cate_marinated.jpg",
-                            onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(
-                                builder: (context) {
-                                  return MarinatedItems();
-                                },
-                              ));
-                            },
-                            color: Colors.green,
-                          ),
-                          CategoryItemTile(
-                            CategoryName: "Ready to Cook",
-                            ImagePath: "assets/cte_ready to cook.jpg",
-                            onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(
-                                builder: (context) {
-                                  return ReadyToCookItems();
-                                },
-                              ));
-                            },
-                            color: Colors.green,
-                          ),
-                        ])
+                    SingleChildScrollView(
+                      physics: ScrollPhysics(),
+                      child: GridView(
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,childAspectRatio: .7),
+                          children: [
+                            CategoryItemTile(
+                              CategoryName: "Meat",
+                              ImagePath: "assets/cate_meat.jpg",
+                              onPressed: () {
+                                Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) {
+                                    return MeatItems();
+                                  },
+                                ));
+                              },
+                              color: Colors.green,
+                            ),
+                            CategoryItemTile(
+                              CategoryName: "Fish",
+                              ImagePath: "assets/cate_fish.jpg",
+                              onPressed: () {
+                                Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) {
+                                    return FishItems();
+                                  },
+                                ));
+                              },
+                              color: Colors.green,
+                            ),
+                            CategoryItemTile(
+                              CategoryName: "Marinated Items",
+                              ImagePath: "assets/cate_marinated.jpg",
+                              onPressed: () {
+                                Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) {
+                                    return MarinatedItems();
+                                  },
+                                ));
+                              },
+                              color: Colors.green,
+                            ),
+                            CategoryItemTile(
+                              CategoryName: "Ready to Cook",
+                              ImagePath: "assets/cte_ready to cook.jpg",
+                              onPressed: () {
+                                Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) {
+                                    return ReadyToCookItems();
+                                  },
+                                ));
+                              },
+                              color: Colors.green,
+                            ),
+                          ]),
+                    )
                   ],
                 ))));
   }
